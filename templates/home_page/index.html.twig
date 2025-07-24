@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomePageController!{% endblock %}
+
+{% block body %}
+
+
+<div class="example-wrapper">
+    {% if app.user %}
+        <h1>Hello {{ app.user.nom }}! ✅</h1>
+     {% else %} 
+        <h1>Acceuil du Monde des Arnauds</h1>
+    {% endif %}
+
+    {% if app.user == true %}
+
+        <div>
+            <a href="{{ path('app_logout') }}">Déconnexion</a>
+        </div> 
+        {% if  is_granted("ROLE_ADMIN") %} 
+        <div>
+            <a href="{{ path('app_dashboard_admin') }}">AdminDashboard</a>
+        </div>
+        {% else %}
+        <div>
+            <a href="{{ path('app_dashboard_profil') }}">ProfilDashboard</a> 
+        </div>   
+    {% endif %}
+
+        {% else %}
+            <div>
+            <a href="{{ path('app_login') }}">Connexion</a>
+        </div>
+        <div>
+            <a href="{{ path('app_register') }}">Inscription</a>
+        </div>
+    {% endif %}
+
+    {# condition pour vérifier si l'utilisateur est admin affiche le dasboard #}
+    
+</div>
+{% endblock %}
