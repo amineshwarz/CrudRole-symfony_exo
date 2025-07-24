@@ -29,8 +29,9 @@ final class DashboardAdminController extends AbstractController
     #[Route('/editAdmin/{id}', name: 'app_editAdmin_form')]
     public function editForm($id ,Request $request, EntityManagerInterface $entityManager ): Response
     {
+        $isAdmin = $this->isGranted('ROLE_ADMIN'); // Vérifie si l'utilisateur connecté a le rôle ROLE_ADMIN
         $users = $entityManager->getRepository(User::class)->find($id);
-        $form = $this->createForm(AdminEditFormType::class, $users );
+        $form = $this->createForm(AdminEditFormType::class, $users, ['allow_roles_edit' => $isAdmin ]);
         $form->handleRequest($request);
 
         // dd($form->getData(), $users);

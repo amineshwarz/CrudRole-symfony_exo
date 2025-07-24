@@ -8,10 +8,12 @@
 <div class="form-block">
     {{ form_start(form) }}
         {{ form_widget(form) }}
+
         <div class="divBtn">
             <button type="submit" class= 'btn btn-warning'>Modifier</button>
             <a href="{{ path('app_dashboard_profil')}}" class= 'btn btn-primary'>retour</a>
         </div>
+        
     {{ form_end(form) }}
 </div>
 {% endblock %}
