@@ -5,24 +5,26 @@
 {% block body %}
   <section>
    
-    <h1>Hello {{ app.user.nom }}! ✅</h1>
+    <h1 class="titre">Hello {{ app.user.nom }}! ✅</h1>
 
     
     {% for dataBs in dataBs %}
-    <div class="divCard">
+    <div class="form-block">
     
          <div class="divCardContent">
-            <p class='para'> {{dataBs.nom}}</p>
-            <p class='para'> {{dataBs.prenom}}</p>
-            <p class='para'> {{dataBs.email}}</p>
+            <li> {{dataBs.nom}}</li>
+            <li>{{dataBs.prenom}}</li>
+            <li> {{dataBs.email}}</li>
          </div> 
+
         <div class="divBtn"> 
-            <a href="{{ path('app_edit_form', {'id': dataBs.id}) }}" class= 'btn btn-warning' style="width: 10rem;">Modifier</a>
+            <a href="{{ path('app_editAdmin_form', {'id': dataBs.id}) }}" class= 'btn btn-warning' style="width: 10rem;">Modifier</a>
             <a href="{{ path('app_delete_form', {'id': dataBs.id}) }}" class= 'btn btn-danger' style="width: 10rem;" onclick="return confirm('Es-tu sûr de vouloir supprimer cet élément ?');">Supprimer</a>
-            
         </div>
     </div>  
     {% endfor %}
-    <a href="{{ path('app_logout') }}">Déconnexion</a>
+    <div class="divBtn">
+      <a href="{{ path('app_logout') }}" class= 'btn btn-primary' style="width: 10rem;">Déconnexion</a>
+    </div>  
     </section>
 {% endblock %}

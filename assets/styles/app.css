@@ -1,3 +1,65 @@
-body {
+.body {
     background-color: rgb(135, 235, 197);
+}
+
+
+
+.titre{
+    font-size: 30px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+
+.form-block{
+    width: 30%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.divBtn{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+.divCardContent{
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    transition: transform 0.2s;
+    
+}
+label {
+/* label[for="registration_form_nom"] { */
+    font-weight: 600;
+    width: 80%;
+    margin: 0 auto;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    outline: none;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+    display:flex;
+    justify-content: end;
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    
 }

@@ -4,35 +4,35 @@
 
 {% block body %}
 
-
-<div class="example-wrapper">
     {% if app.user %}
-        <h1>Hello {{ app.user.nom }}! ✅</h1>
-     {% else %} 
-        <h1>Acceuil du Monde des Arnauds</h1>
+        <h1 class="titre">Hello {{ app.user.nom }}! ✅</h1>
+        {% else %} 
+        <h1 class="titre">Acceuil du Monde des Arnauds</h1>
     {% endif %}
+
+
+<div class="form-block">
+    
 
     {% if app.user == true %}
 
-        <div>
-            <a href="{{ path('app_logout') }}">Déconnexion</a>
+        <div class='divBtn'>
+            <a href="{{ path('app_logout') }}" class= 'btn btn-primary' style="width: 10rem;">Déconnexion</a>
         </div> 
         {% if  is_granted("ROLE_ADMIN") %} 
-        <div>
-            <a href="{{ path('app_dashboard_admin') }}">AdminDashboard</a>
+        <div class='divBtn'>
+            <a href="{{ path('app_dashboard_admin') }} " class= 'btn btn-primary' style="width: 10rem;">AdminDashboard</a>
         </div>
         {% else %}
-        <div>
-            <a href="{{ path('app_dashboard_profil') }}">ProfilDashboard</a> 
+        <div class='divBtn'>
+            <a href="{{ path('app_dashboard_profil') }}" class= 'btn btn-primary' style="width: 10rem;">ProfilDashboard</a> 
         </div>   
     {% endif %}
 
         {% else %}
-            <div>
-            <a href="{{ path('app_login') }}">Connexion</a>
-        </div>
-        <div>
-            <a href="{{ path('app_register') }}">Inscription</a>
+        <div class='divBtn'>
+            <a href="{{ path('app_login') }}" class= 'btn btn-primary' style="width: 10rem;">Connexion</a>
+            <a href="{{ path('app_register') }}" class= 'btn btn-primary' style="width: 10rem;">Inscription</a>
         </div>
     {% endif %}
 

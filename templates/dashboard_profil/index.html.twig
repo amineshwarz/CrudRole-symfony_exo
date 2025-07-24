@@ -5,23 +5,25 @@
 {% block body %}
   <section>
    
-     <h1>Hello {{ app.user.nom }}! ✅</h1>
+     <h1 class="titre">Hello {{ app.user.nom }}! ✅</h1>
 
     
     {% for dataBs in dataBs %}
-    <div class="divCard">
-    
-         <div class="divCardContent">
-            <p class='para'> {{dataBs.nom}}</p>
-            <p class='para'> {{dataBs.prenom}}</p>
-            <p class='para'> {{dataBs.email}}</p>
-         </div> 
+    <div class="form-block">
+        <div class="divCardContent">
+
+            <p> {{dataBs.nom}}</p>
+            <p> {{dataBs.prenom}}</p>
+            <p> {{dataBs.email}}</p>
+
+        </div> 
         <div class="divBtn"> 
-            <a href="{{ path('app_edit_form', {'id': dataBs.id}) }}" class= 'btn btn-warning' style="width: 10rem;">Modifier</a>
-            
+            <a href="{{ path('app_editProfil_form', {'id': dataBs.id}) }}" class= 'btn btn-warning' style="width: 10rem;">Modifier</a>  
         </div>
     </div>  
     {% endfor %}
-    <a href="{{ path('app_logout') }}">Déconnexion</a>
-    </section>
+    <div class="divBtn">
+        <a href="{{ path('app_logout') }}" class= 'btn btn-primary' style="width: 10rem;">Déconnexion</a>
+    </div>  
+  </section>
 {% endblock %}

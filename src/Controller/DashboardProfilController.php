@@ -23,7 +23,7 @@ final class DashboardProfilController extends AbstractController
         ]);
     }
 
-    #[Route('/edit/{id}', name: 'app_edit_form')]
+    #[Route('/editProfil/{id}', name: 'app_editProfil_form')]
     public function editForm($id ,Request $request, EntityManagerInterface $entityManager ): Response
     {
         $users = $entityManager->getRepository(User::class)->find($id);

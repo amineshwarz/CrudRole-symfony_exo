@@ -26,7 +26,7 @@ final class DashboardAdminController extends AbstractController
         ]);
     }
     
-    #[Route('/edit/{id}', name: 'app_edit_form')]
+    #[Route('/editAdmin/{id}', name: 'app_editAdmin_form')]
     public function editForm($id ,Request $request, EntityManagerInterface $entityManager ): Response
     {
         $users = $entityManager->getRepository(User::class)->find($id);
