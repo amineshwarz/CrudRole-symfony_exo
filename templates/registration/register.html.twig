@@ -5,8 +5,12 @@
 {% block body %}
     <h1 class='titre'>Inscription</h1>
 
+
     {{ form_errors(registrationForm) }}
     <div class="form-block">
+        <div class='divimgProfillog'>
+            <img src="{{ asset('img/profil.png') }}" alt=" profil login" class='imgLogin' >
+        </div>
         {{ form_start(registrationForm) }}
 
             {{ form_row(registrationForm.nom) }}
@@ -23,6 +27,7 @@
 
             <div class="divBtn">
                 <button type="submit" class="btn btn-primary">Register</button>
+                <a href="{{ path('app_dashboard_admin')}}" class= 'btn btn-primary'>retour</a>
             </div>
     {{ form_end(registrationForm) }}
     </div>

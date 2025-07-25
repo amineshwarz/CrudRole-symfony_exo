@@ -3,28 +3,30 @@
 {% block title %}Hello DashboardAdminController!{% endblock %}
 
 {% block body %}
-  <section>
+  
    
-    <h1 class="titre">Hello {{ app.user.nom }}! ✅</h1>
+    <h1 class="titre">😻 Bienvenue dans le Dashboard {{ app.user.nom }} modifier vos chattons😻</h1>
 
-    
-    {% for dataBs in dataBs %}
-    <div class="form-block">
-    
-         <div class="divCardContent">
-            <li> {{dataBs.nom}}</li>
-            <li>{{dataBs.prenom}}</li>
-            <li> {{dataBs.email}}</li>
-         </div> 
+    <section class="container">
+      {% for dataBs in dataBs %}
+        <div class="form-block">
+            <div class='divimgProfillog'>
+                <img src="{{ asset('img/profil.png') }}" alt=" profil login" class='imgLogin' >
+            </div>
+            <div class="divCardContent">
+                <h3> {{dataBs.nom}}</h3>
+                <li>{{dataBs.prenom}}</li>
+                <li> {{dataBs.email}}</li>
+            </div> 
 
-        <div class="divBtn"> 
-            <a href="{{ path('app_editAdmin_form', {'id': dataBs.id}) }}" class= 'btn btn-warning' style="width: 10rem;">Modifier</a>
-            <a href="{{ path('app_delete_form', {'id': dataBs.id}) }}" class= 'btn btn-danger' style="width: 10rem;" onclick="return confirm('Es-tu sûr de vouloir supprimer cet élément ?');">Supprimer</a>
-        </div>
-    </div>  
-    {% endfor %}
-    <div class="divBtn">
-      <a href="{{ path('app_logout') }}" class= 'btn btn-primary' style="width: 10rem;">Déconnexion</a>
-    </div>  
+            <div class="divBtn"> 
+                <a href="{{ path('app_editAdmin_form', {'id': dataBs.id}) }}" class= 'btn btn-warning' style="width: 10rem;">Modifier</a>
+                <a href="{{ path('app_delete_form', {'id': dataBs.id}) }}" class= 'btn btn-danger' style="width: 10rem;" onclick="return confirm('Es-tu sûr de vouloir supprimer cet élément ?');">Supprimer</a>
+            </div>
+        </div>  
+      {% endfor %}
     </section>
+    <div class="divBtn">
+        <a href="{{ path('app_logout') }}" class= 'btn btn-primary' style="width: 10rem;">Déconnexion</a>
+      </div>  
 {% endblock %}
