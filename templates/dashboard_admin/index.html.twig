@@ -7,11 +7,15 @@
    
     <h1 class="titre">😻 Bienvenue dans le Dashboard {{ app.user.nom }} modifier vos chattons😻</h1>
 
-    <section class="container">
+    <section class="sectionDashboar">
       {% for dataBs in dataBs %}
         <div class="form-block">
             <div class='divimgProfillog'>
-                <img src="{{ asset('img/profil.png') }}" alt=" profil login" class='imgLogin' >
+                {% if dataBs.photo %}
+                    <img src="{{ asset('uploads/photos/' ~ dataBs.photo) }}" alt="Photo de profil" style="max-width:180px; border-radius:50%;">
+                {% else %}
+                    <img src="{{ asset('uploads/photos/profil.png') }}" alt="Photo de profil par défaut" style="max-width:180px; border-radius:50%;">
+                {% endif %}
             </div>
             <div class="divCardContent">
                 <h3> {{dataBs.nom}}</h3>
@@ -25,6 +29,7 @@
             </div>
         </div>  
       {% endfor %}
+      
     </section>
     <div class="divBtn">
         <a href="{{ path('app_logout') }}" class= 'btn btn-primary' style="width: 10rem;">Déconnexion</a>

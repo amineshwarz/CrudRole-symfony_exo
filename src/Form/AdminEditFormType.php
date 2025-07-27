@@ -5,7 +5,9 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class AdminEditFormType extends AbstractType
@@ -15,7 +17,23 @@ class AdminEditFormType extends AbstractType
         $builder
             ->add('email')
             ->add('nom')
-            ->add('prenom');
+            ->add('prenom')
+            ->add('photo', FileType::class, [
+                'label' => 'Photo (Image)',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '2M',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/gif',
+                        ],
+                        'mimeTypesMessage' => 'veuillez uploader une image valide (JPEG, PNG, GIF).',
+                    ]),
+                ],
+            ]);
 
             if ($options['allow_roles_edit'] ?? false){
                 $builder->add('roles', ChoiceType::class, [

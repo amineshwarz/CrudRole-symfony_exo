@@ -10,6 +10,9 @@
     
     {% for dataBs in dataBs %}
     <div class="form-block">
+        <div class='divimgProfillog'>    
+            <img src="{{ asset('uploads/photos/' ~ app.user.photo) }}" alt="Photo de profil" style="max-width:180px; border-radius:50%;">
+        </div>
         <div class="divCardContent">
 
             <p> {{dataBs.nom}}</p>

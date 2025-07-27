@@ -19,6 +19,20 @@ class RegistrationController extends AbstractController
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
+        $photoFile = $form->get('photo')->getData();
+        if ($photoFile) {
+            // Generate a unique filename for the photo
+            $newFilename = uniqid() . '.' . $photoFile->guessExtension();
+
+            // Move the file to the directory where photos are stored
+            $photoFile->move(
+                $this->getParameter('photos_directory'),
+                $newFilename
+            );
+
+            // Set the new filename in the user entity
+            $user->setPhoto($newFilename);
+        }
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var string $plainPassword */

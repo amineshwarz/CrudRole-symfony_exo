@@ -14,10 +14,12 @@
 .titre{
     font-size: 30px;
     text-align: center;
-    color: rgb(227, 223, 223);
+    color: rgb(124, 121, 121);
+    background-color: rgba(255, 255, 255, 0.362);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 2em;
     margin-bottom: 5em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     
 }
 
@@ -29,7 +31,7 @@
     background-color: rgba(255, 255, 255, 0.362);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
+    margin-bottom: 5em;
 }
 
 .divBtn{
@@ -39,7 +41,7 @@
     margin-top: 10px;
 }
 .divCardContent{
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
     padding: 20px;
     background-color: rgb(255, 255, 255);
@@ -73,8 +75,9 @@ input[type="password"] {
 }
 .divimgProfillog{   
     display: flex;
-    justify-content: center;
-    align-self: center;
+
+    flex-direction: row;
+
     margin: 0 auto;
     max-width: 50%;
     border-radius: 50%;
@@ -83,14 +86,18 @@ input[type="password"] {
     width: 100%;
 }
 
-.container{
+.sectionDashboar{
     display: flex;
     justify-content: center;
-    
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 2em;
 }
 
 
-footer{
+/* footer{
+    margin-top: 15em;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -105,4 +112,4 @@ footer{
     align-items: center;
     height: 100%;
     color: black;
-}
+} */
